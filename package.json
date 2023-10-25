@@ -1,37 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "api_gofreela",
-  "version": "1.0.0",
-  "description": "gofreela api desenvolvida em nodejs com mongodb",
-  "main": "src/index.ts",
-  "scripts": {
-    "start": "nodemon"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "compression": "^1.7.4",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "mongodb": "^6.1.0",
-    "mongoose": "^7.6.2"
-  },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.3",
-    "@types/compression": "^1.7.3",
-    "@types/cookie-parser": "^1.4.4",
-    "@types/cors": "^2.8.14",
-    "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.19",
-    "@types/lodash": "^4.14.199",
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
-=======
   "name": "api-gofreela",
   "private": true,
   "version": "0.0.0",
@@ -43,16 +10,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WeslleyS1/API__goFreela.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WeslleyS1/API__goFreela/issues"
-  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
@@ -79,10 +38,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "nodemon": "^3.0.1",
-    "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.5"
->>>>>>> 3f034a90c4f31dcbd9aed6986d425ff32f5cccf8
   }
 }
