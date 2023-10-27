@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+mongoose.Promise = Promise;
 require("dotenv").config();
 
-mongoose.Promise = Promise;
 module.exports = () => {
   mongoose
     .connect(process.env.MONGODB_URI, {
@@ -9,7 +9,9 @@ module.exports = () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("MongoDB connected...");
+      console.log("Connected to MongoDB");
     })
-    .catch((err: { message: any }) => console.log(err.message));
+    .catch((err: { message: any }) =>
+      console.log("Unable to connect to MongoDB: " + err.message)
+    );
 };

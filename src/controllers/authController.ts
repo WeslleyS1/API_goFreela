@@ -1,5 +1,5 @@
 import express from "express";
-const User = require("../models/users");
+const { getUserByEmail, createUser } = require("../models/users");
 import { authentication, generateRandomString } from "../helpers";
 
 // Login
@@ -11,7 +11,7 @@ export const login = async (req: express.Request, res: express.Response) => {
       return res.sendStatus(400);
     }
 
-    const user = await User.getUserByEmail(email).select(
+    const user = await getUserByEmail(email).select(
       "+authentication.salt +authentication.password"
     );
 
@@ -58,16 +58,15 @@ export const register = async (req: express.Request, res: express.Response) => {
       return res.sendStatus(400);
     }
 
-    const existUser = await User.getUserByEmail(email);
+    const existUser = await getUserByEmail(email);
 
     if (existUser) {
       return res.sendStatus(400);
     }
 
     const salt = generateRandomString();
-    const user = await User.createUser({
+    const user = await createUser({
       email,
-      password,
       username,
       authentication: { salt, password: authentication(salt, password) },
     });
