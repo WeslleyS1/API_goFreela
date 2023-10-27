@@ -11,7 +11,7 @@ export const getAllUsers = async (req: express.Request, res: express.Response) =
 
         return res.status(200).json({users});
     } catch (error) {
-        return res.sendStatus(500).json({error});
+        return res.status(500).json({error});
     }
 }
 
@@ -24,7 +24,7 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
 
         return res.status(200).json({deleteUser});
     } catch (error) {
-        return res.sendStatus(500).json({error});
+        return res.status(500).json({error});
     }
 }
 
@@ -34,7 +34,7 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
         const { id } = req.params;
         const { username } = req.body;
 
-        if(!username) {return res.sendStatus(400);}
+        if(!username) {return res.status(400);}
 
         const user = await getUserById(id);
 
@@ -43,6 +43,6 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
 
         return res.status(200).json({user}).end();
     }catch(error){
-        return res.sendStatus(500).json({error});
+        return res.status(500).json({error});
     }
 }
