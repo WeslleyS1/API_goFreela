@@ -16,7 +16,7 @@ const server = http.createServer(app);
 require('./config/config');
 require('./config/config')();
 
-const PORT = process.env.PORT || ' ';
+const PORT = process.env.PORT ||'' ;
 
 server.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);

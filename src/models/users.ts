@@ -23,7 +23,20 @@ const userSchema = new mongoose.Schema({
             select: false
         },
     },
-});
+    resetPasswordToken: {
+      type: String,
+      select: false
+    },
+    resetPasswordExpires: {
+      type: Date,
+      select: false
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+        
+    });
 
 export const UserModel = mongoose.model('User', userSchema);
 
@@ -40,3 +53,8 @@ export const createUser = (values: Record<string, any>) => new UserModel(values)
 export const deleteUserById = (id: string) => UserModel.findOneAndDelete({_id: id});
 
 export const updateUserById = (id: string, values: Record<string, any>) => UserModel.findByIdAndUpdate(id, values, {new: true});
+
+userSchema.methods.setResetPasswordToken = function(token, expirationDate) {
+    this.resetPasswordToken = token;
+    this.resetPasswordExpires = expirationDate;
+};
