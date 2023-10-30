@@ -1,11 +1,11 @@
-import express from 'express';
+import express from "express";
 
-import { deleteUser, getAllUsers, updateUser } from '../controllers/users'; 
-import { isAuthenticated, isOwner } from '../middlewares';
-import { update } from 'lodash';
+import { deleteUser, getAllUsers, updateUser } from "../controllers/users";
+import { isAuthenticated, isOwner } from "../middlewares";
+import { update } from "lodash";
 
 export default (router: express.Router) => {
-    router.get('/users',isAuthenticated, getAllUsers);
-    router.delete('/users/:id', isAuthenticated, isOwner, deleteUser);
-    router.put('/users/:id', isAuthenticated, isOwner, updateUser);
+  router.get("/users", isAuthenticated, getAllUsers);
+  router.delete("/users/:id", isAuthenticated, isOwner, deleteUser);
+  router.patch("/users/:id", isAuthenticated, isOwner, updateUser);
 };
