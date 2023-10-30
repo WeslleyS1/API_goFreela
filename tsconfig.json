@@ -4,7 +4,8 @@
     "moduleResolution": "NodeNext",
     "baseUrl": "src",
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "jsx": "react"
     // "noImplicitAny": true
   },
   "include": ["src/**/*"]

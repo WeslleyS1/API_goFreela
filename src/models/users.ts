@@ -1,31 +1,50 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-  },
-  authentication: {
-    password: {
+const userSchema = new mongoose.Schema(
+  {
+    username: {
       type: String,
       required: true,
-      select: false,
     },
-    salt: {
+    email: {
       type: String,
-      select: false,
+      required: true,
+      lowercase: true,
     },
-    sessionToken: {
+    authentication: {
+      password: {
+        type: String,
+        required: true,
+        select: false,
+      },
+      salt: {
+        type: String,
+        select: false,
+      },
+      sessionToken: {
+        type: String,
+        select: false,
+      },
+    },
+    picture: {
       type: String,
-      select: false,
     },
   },
-});
+  {
+    timestamps: true,
+  }
+);
+
+export interface UserDocument extends mongoose.Document {
+  email: string;
+  username: string;
+  authentication: {
+    password: string;
+    salt: string;
+    sessionToken: string;
+  };
+  picture: string;
+}
 
 export const UserModel = mongoose.model("User", userSchema);
 
