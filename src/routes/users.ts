@@ -3,7 +3,6 @@ import express from 'express';
 import { deleteUser, getAllUsers, updateUser, forgotPassword, resetPassword } from '../controllers/users'; 
 import { isAuthenticated, isOwner } from '../middlewares';
 import { update } from 'lodash';
-// import { googleOAuthHandler } from '../controllers/authentication';
 
 export default (router: express.Router) => {
     router.get('/users',isAuthenticated, getAllUsers);
@@ -13,5 +12,4 @@ export default (router: express.Router) => {
     router.post('/users/reset-password', isAuthenticated, resetPassword);
 
 
-    // router.get('/api/sessions/oauth/google', googleOAuthHandler);
 };
