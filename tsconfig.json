@@ -4,7 +4,8 @@
         "moduleResolution": "NodeNext",
         "baseUrl": "src",
         "outDir": "dist",
-        "sourceMap": true
+        "sourceMap": true,
+        "esModuleInterop": true
         // "noImplicitAny": true,
     },
     "include": ["src/**/*"]

@@ -1,7 +1,5 @@
-import express, { Router } from 'express';
-import Logging from '../library/Logging';
-
 const mongoose = require('mongoose');
+
 mongoose.Promise = Promise;
 require('dotenv').config();
 
@@ -12,9 +10,9 @@ module.exports = () => {
             useUnifiedTopology: true,
         })
         .then(() => {
-            Logging.info('Connected to MongoDB');
+            console.log('Connected to MongoDB');
         })
         .catch((err: { message: any }) =>
-            Logging.error('Unable to connect to MongoDB: ' + err.message)
+            console.log('Unable to connect to MongoDB: ' + err.message)
         );
 };
